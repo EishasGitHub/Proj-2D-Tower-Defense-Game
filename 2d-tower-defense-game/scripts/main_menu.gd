@@ -4,7 +4,10 @@ extends Node2D
 
 func _on_start_button_pressed() -> void:
 	print("Starting game...")
-	#get_tree().change_scene_to_file("")
+	
+	GameManager.reset_game()
+	# Transition to game screen
+	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 
 
 func _on_credits_button_pressed() -> void:

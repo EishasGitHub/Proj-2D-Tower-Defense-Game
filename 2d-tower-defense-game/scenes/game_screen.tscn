@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://r8q24lshqugl"]
+
+[ext_resource type="Script" uid="uid://b1o55b7m8e4dh" path="res://scripts/game_screen.gd" id="1_dv2sx"]
+[ext_resource type="PackedScene" uid="uid://dr6jtcq4th7c3" path="res://scenes/hud.tscn" id="2_rxmqw"]
+[ext_resource type="PackedScene" uid="uid://dvevdmjfdmirb" path="res://scenes/pause_menu.tscn" id="3_1urxi"]
+
+[node name="GameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dv2sx")
+
+[node name="HUD" parent="." instance=ExtResource("2_rxmqw")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_1urxi")]
+visible = false
+layout_mode = 1
+
+[node name="GameWorld" type="Node2D" parent="."]
