@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="2D Tower Defense Game"
+run/main_scene="uid://22mid4avbsiu"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
