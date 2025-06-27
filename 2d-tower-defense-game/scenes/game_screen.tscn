@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://r8q24lshqugl"]
+[gd_scene load_steps=8 format=4 uid="uid://r8q24lshqugl"]
 
 [ext_resource type="Script" uid="uid://b1o55b7m8e4dh" path="res://scripts/game_screen.gd" id="1_dv2sx"]
 [ext_resource type="PackedScene" uid="uid://dr6jtcq4th7c3" path="res://scenes/hud.tscn" id="2_rxmqw"]
 [ext_resource type="PackedScene" uid="uid://dvevdmjfdmirb" path="res://scenes/pause_menu.tscn" id="3_1urxi"]
 [ext_resource type="Texture2D" uid="uid://6w0ygsqgylfh" path="res://art/Tilesheet/towerDefense_tilesheet@2.png" id="4_dv2sx"]
+[ext_resource type="PackedScene" uid="uid://didmgo244ftfe" path="res://scenes/castle.tscn" id="5_rxmqw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxmqw"]
 texture = ExtResource("4_dv2sx")
@@ -16796,3 +16797,6 @@ tile_set = SubResource("TileSet_1urxi")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAMAAIAAAAoAAoAAAANAAIAAAApAAoAAAANAAMAAAApAAsAAAAMAAMAAAAoAAsAAAAAAAUAAAAgAAsAAAAAAAQAAAAgAAoAAAABAAQAAAAhAAoAAAABAAUAAAAhAAsAAAADAAgAAAAjAAoAAAADAAkAAAAjAAsAAAACAAkAAAAiAAsAAAACAAgAAAAiAAoAAAACAAAAAAAsAAoAAAADAAEAAAAtAAsAAAACAAEAAAAsAAsAAAADAAAAAAAtAAoAAAAGAAgAAAAqAAoAAAAHAAkAAAArAAsAAAAGAAkAAAAqAAsAAAAHAAgAAAArAAoAAAAAAAkAAAAoAAsAAAAAAAgAAAAoAAoAAAABAAkAAAApAAsAAAABAAgAAAApAAoAAAAKAAEAAAAiAAsAAAAKAAAAAAAiAAoAAAALAAAAAAAjAAoAAAALAAEAAAAjAAsAAAAIAAAAAAAeAAoAAAAJAAAAAAAfAAoAAAAIAAEAAAAeAAsAAAAJAAEAAAAfAAsAAAAHAAUAAAAjAAoAAAAGAAUAAAAiAAoAAAAHAAYAAAAjAAsAAAAGAAYAAAAiAAsAAAAIAAUAAAAmAAoAAAAJAAUAAAAnAAoAAAAJAAYAAAAnAAsAAAAIAAYAAAAmAAsAAAAQAAcAAAAhAAsAAAAPAAcAAAAgAAsAAAAPAAYAAAAgAAoAAAAQAAYAAAAhAAoAAAA=")
 tile_set = SubResource("TileSet_1urxi")
+
+[node name="Castle" parent="GameWorld/Map" instance=ExtResource("5_rxmqw")]
+position = Vector2(1055, 69)
