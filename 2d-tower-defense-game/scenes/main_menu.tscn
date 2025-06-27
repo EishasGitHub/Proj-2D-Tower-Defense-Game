@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://22mid4avbsiu"]
+
+[ext_resource type="Script" uid="uid://ne7lihl2d7mg" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://c46qef7wwmlhl" path="res://art/PNG/Retina/towerDefense_tile231.png" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.940834, 0.42836, 1.92523e-07, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0.337255, 0, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_ekxnf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l6cm7")
+
+[node name="Game Name" type="Label" parent="CanvasLayer"]
+offset_left = 317.0
+offset_top = 52.0
+offset_right = 827.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "2D Tower Defense Game"
+uppercase = true
+
+[node name="Credits" type="AcceptDialog" parent="CanvasLayer"]
+title = "Credits"
+initial_position = 2
+size = Vector2i(500, 500)
+ok_button_text = "Back"
+dialog_text = "Project: 2D Tower Defense Game
+
+by
+Sahul Shoham Gill - 251685973
+Eisha Tir Raazia - 251714206
+
+Instructor:
+Mr. Fakhir Shaheen"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -166.0
+offset_right = -102.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+theme_override_constants/separation = 30
+
+[node name="StartButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "Start"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "Credits
+"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/ButtonContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
