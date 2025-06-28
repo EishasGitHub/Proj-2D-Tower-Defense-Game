@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name BaseEnemy
 
 # Base stats that will be overridden by enemy types
-@export var max_health: float = 100.0
+@export var max_health: float = 150.0
 @export var movement_speed: float = 100.0
 @export var gold_reward: int = 10
 @export var damage_to_player: int = 1
@@ -48,6 +48,8 @@ func setup_enemy_type():
 func take_damage(damage: float):
 	current_health -= damage
 	
+	print(current_health)
+	
 	if current_health <= 0:
 		die()
 
@@ -61,3 +63,6 @@ func _on_reached_end():
 
 func get_health_percentage() -> float:
 	return current_health / max_health
+	
+func enemy():
+	pass	
