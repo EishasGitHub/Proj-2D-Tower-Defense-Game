@@ -40,10 +40,10 @@ func _start_game():
 	print("Starting tower defense game...")
 	
 	print("Game will end in 10 seconds for testing...")
-	await get_tree().create_timer(10.0).timeout
-	print("20 seconds passed - triggering game over for testing")
-	
-	GameManager.trigger_game_over()
+	#await get_tree().create_timer(10.0).timeout
+	#print("20 seconds passed - triggering game over for testing")
+	#
+	#GameManager.trigger_game_over()
 	# Game is now ready - no demo events
 	# Add your actual game logic here later
 

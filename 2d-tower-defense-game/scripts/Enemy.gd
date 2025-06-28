@@ -18,19 +18,28 @@ var path_follower: PathFollower
 signal enemy_died(enemy: BaseEnemy)
 signal enemy_reached_end(enemy: BaseEnemy)
 
+@export var speed = 150
+
 func _ready():
 	current_health = max_health
-	path_follower = get_parent() as PathFollower
-	
-	if path_follower:
-		path_follower.speed = movement_speed
-		path_follower.enemy_reached_end.connect(_on_reached_end)
+	#path_follower = get_parent() as PathFollower
+	#
+	#if path_follower:
+		#path_follower.speed = movement_speed
+		#path_follower.enemy_reached_end.connect(_on_reached_end)
 	
 	# Apply visual modifications
 	scale = Vector2(scale_modifier, scale_modifier)
 	modulate = enemy_color
 	
 	setup_enemy_type()
+
+func _process(delta: float) -> void:
+	get_parent().set_progress(get_parent().get_progress() + speed*delta)
+	
+	if get_parent().get_progress_ratio() == 1:
+		queue_free()
+		
 
 func setup_enemy_type():
 	# Override this in child classes
