@@ -19,6 +19,7 @@ signal enemy_died(enemy: BaseEnemy)
 signal enemy_reached_end(enemy: BaseEnemy)
 
 func _ready():
+	add_to_group("enemies")
 	current_health = max_health
 	path_follower = get_parent() as PathFollower
 	

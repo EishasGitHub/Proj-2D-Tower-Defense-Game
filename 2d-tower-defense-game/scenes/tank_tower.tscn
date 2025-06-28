@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bah7py3ljk8lw"]
+
+[ext_resource type="Script" uid="uid://d134xui8mumiq" path="res://tank_tower.gd" id="1_wj6jy"]
+[ext_resource type="Texture2D" uid="uid://b0uu3volwcxk2" path="res://art/PNG/Default size/towerDefense_tile249.png" id="2_nlf8f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlf8f"]
+radius = 200.0
+
+[node name="TankTower" type="Area2D"]
+script = ExtResource("1_wj6jy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nlf8f")
+
+[node name="TankSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_nlf8f")
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(0, -40)

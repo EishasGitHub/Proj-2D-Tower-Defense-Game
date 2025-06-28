@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0c1mn5rhtqeo"]
-
-[ext_resource type="Texture2D" uid="uid://b0uu3volwcxk2" path="res://art/PNG/Default size/towerDefense_tile249.png" id="1_2x682"]
-
-[node name="Tower" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_2x682")
