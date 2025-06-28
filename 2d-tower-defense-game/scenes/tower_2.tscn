@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciaqvi1jah6ke"]
+
+[ext_resource type="Texture2D" uid="uid://birptyjykqn44" path="res://art/PNG/Retina/towerDefense_tile084.png" id="1_1ecqq"]
+[ext_resource type="Texture2D" uid="uid://dm1ydf1ljvjiw" path="res://art/PNG/Default size/towerDefense_tile250.png" id="2_5snkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp6v5"]
+size = Vector2(48, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ecqq"]
+radius = 200.0
+
+[node name="tower_2" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_dp6v5")
+
+[node name="Base" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_1ecqq")
+
+[node name="Turret" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_5snkr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1ecqq")

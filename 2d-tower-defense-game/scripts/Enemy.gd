@@ -48,9 +48,8 @@ func setup_enemy_type():
 func take_damage(damage: float):
 	current_health -= damage
 	
-	print(current_health)
-	
 	if current_health <= 0:
+		await get_tree().create_timer(0.2).timeout
 		die()
 
 func die():
