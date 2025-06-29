@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://didmgo244ftfe"]
+[gd_scene load_steps=6 format=3 uid="uid://didmgo244ftfe"]
 
+[ext_resource type="Script" uid="uid://c23vexfeqnucb" path="res://scripts/castle.gd" id="1_0ysgy"]
 [ext_resource type="Texture2D" uid="uid://oj41g2xb3nkn" path="res://art/castle (1).png" id="1_bly62"]
+[ext_resource type="PackedScene" uid="uid://cv6ehwu4veiij" path="res://scenes/castle_health_bar.tscn" id="3_rjj26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ysgy"]
 size = Vector2(136, 120)
@@ -9,6 +11,7 @@ size = Vector2(136, 120)
 size = Vector2(138, 122)
 
 [node name="Castle" type="Node2D"]
+script = ExtResource("1_0ysgy")
 
 [node name="CastleSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -23,3 +26,5 @@ shape = SubResource("RectangleShape2D_0ysgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rjj26")
+
+[node name="CastleHealthBar" parent="." instance=ExtResource("3_rjj26")]
