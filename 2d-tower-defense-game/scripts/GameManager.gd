@@ -15,8 +15,8 @@ var is_game_paused: bool = false
 var is_game_over: bool = false
 
 # Game settings
-var starting_gold: int = 100
-var starting_lives: int = 20
+var starting_gold: int = 200
+var starting_lives: int = 10
 
 func _ready():
 	# Handle pause input globally

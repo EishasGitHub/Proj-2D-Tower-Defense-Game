@@ -3,7 +3,7 @@ class_name BasicEnemy
 
 func setup_enemy_type():
 	max_health = 50
-	movement_speed = 50
+	movement_speed = 80
 	gold_reward = 10
 	#damage_to_player = 1
 	

@@ -38,7 +38,7 @@ func create_health_bar():
 
 func _on_enemy_entered(body):
 	"""Enemy reached castle"""
-	if body.is_in_group("enemies"):
+	if body.has_method("enemy"):
 		print("Enemy reached castle!")
 		
 		# Castle takes damage

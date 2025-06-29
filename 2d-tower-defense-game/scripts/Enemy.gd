@@ -16,7 +16,7 @@ var current_health: float
 signal enemy_died(enemy: BaseEnemy)
 signal enemy_reached_end(enemy: BaseEnemy)
 
-@export var speed = 150
+#@export var speed = 150
 
 #var health_bar: EnemyHealthBar
 @onready var health_bar = $EnemyHealthBar
@@ -36,7 +36,7 @@ func _ready():
 	add_to_group("enemies")
 
 func _process(delta: float) -> void:
-	get_parent().set_progress(get_parent().get_progress() + speed*delta)
+	#get_parent().set_progress(get_parent().get_progress() + speed*delta)
 	
 	if get_parent().get_progress_ratio() == 1:
 		queue_free()

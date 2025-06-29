@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsg31s6hqt0vc"]
+[gd_scene load_steps=5 format=3 uid="uid://bsg31s6hqt0vc"]
 
 [ext_resource type="PackedScene" uid="uid://ckg1iqr1pnext" path="res://scenes/Enemy.tscn" id="1_1dods"]
 [ext_resource type="Script" uid="uid://dg8uet4q7olhd" path="res://scripts/path.gd" id="1_sqppf"]
+[ext_resource type="PackedScene" uid="uid://bgckx0cmwtmra" path="res://scenes/fast_enemy.tscn" id="3_wvrg6"]
 
 [sub_resource type="Curve2D" id="Curve2D_dthvl"]
 _data = {
@@ -19,3 +20,7 @@ rotation = 0.064844
 loop = false
 
 [node name="Enemy" parent="PathFollow2D" instance=ExtResource("1_1dods")]
+visible = false
+
+[node name="FastEnemy" parent="PathFollow2D" instance=ExtResource("3_wvrg6")]
+visible = false
