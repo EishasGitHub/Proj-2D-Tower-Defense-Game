@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name BaseEnemy
 
+signal enemyDied(gold_reward)
+
 # Base stats that will be overridden by enemy types
 @export var max_health: int = 50
 @export var movement_speed: float = 50
@@ -85,6 +87,7 @@ func take_damage(damage_amount: int):
 		
 func die():
 	"""Enemy dies"""
+	emit_signal("enemyDied", gold_reward)
 	# Remove health bar
 	if health_bar:
 		health_bar.queue_free()

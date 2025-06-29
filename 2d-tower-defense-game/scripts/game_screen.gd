@@ -253,6 +253,9 @@ func _ready():
 	# Ensure UI elements are properly set up
 	_setup_ui_layers()
 	
+	var pathSpawner = $PathSpawner
+	pathSpawner.enemyDead.connect(_on_enemy_death)
+	
 	# Start the game logic
 	_start_game()
 	
@@ -394,3 +397,6 @@ func force_game_over():
 func add_debug_gold(amount: int = 100):
 	"""Add gold for debugging purposes"""
 	GameManager.add_gold(amount)
+	
+func _on_enemy_death(gold_reward):
+	GameManager.add_gold(gold_reward)

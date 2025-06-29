@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsg31s6hqt0vc"]
+[gd_scene load_steps=4 format=3 uid="uid://bsg31s6hqt0vc"]
 
 [ext_resource type="PackedScene" uid="uid://ckg1iqr1pnext" path="res://scenes/Enemy.tscn" id="1_1dods"]
+[ext_resource type="Script" uid="uid://dg8uet4q7olhd" path="res://scripts/path.gd" id="1_sqppf"]
 
 [sub_resource type="Curve2D" id="Curve2D_dthvl"]
 _data = {
@@ -10,6 +11,7 @@ point_count = 17
 
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_dthvl")
+script = ExtResource("1_sqppf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(13, 24)
