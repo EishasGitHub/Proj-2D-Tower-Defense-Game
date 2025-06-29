@@ -2,14 +2,14 @@ extends CharacterBody2D
 class_name BaseEnemy
 
 # Base stats that will be overridden by enemy types
-@export var max_health: int = 150
-@export var movement_speed: float = 100.0
+@export var max_health: int = 50
+@export var movement_speed: float = 50
 @export var gold_reward: int = 10
 @export var damage_to_player: int = 1
 
 # Visual properties
-@export var enemy_color: Color = Color.WHITE
-@export var scale_modifier: float = 1.0
+#@export var enemy_color: Color = Color.WHITE
+#@export var scale_modifier: float = 1.0
 
 var current_health: float
 var path_follower: PathFollower
@@ -32,8 +32,8 @@ func _ready():
 		#path_follower.enemy_reached_end.connect(_on_reached_end)
 	
 	# Apply visual modifications
-	scale = Vector2(scale_modifier, scale_modifier)
-	modulate = enemy_color
+	#scale = Vector2(scale_modifier, scale_modifier)
+	#modulate = enemy_color
 	
 	setup_enemy_type()
 	

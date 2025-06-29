@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://r8q24lshqugl"]
+[gd_scene load_steps=9 format=3 uid="uid://r8q24lshqugl"]
 
 [ext_resource type="Script" uid="uid://b1o55b7m8e4dh" path="res://scripts/game_screen.gd" id="1_dv2sx"]
 [ext_resource type="PackedScene" uid="uid://dr6jtcq4th7c3" path="res://scenes/hud.tscn" id="2_rxmqw"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://6w0ygsqgylfh" path="res://art/Tilesheet/towerDefense_tilesheet@2.png" id="4_dv2sx"]
 [ext_resource type="PackedScene" uid="uid://didmgo244ftfe" path="res://scenes/castle.tscn" id="5_rxmqw"]
 [ext_resource type="Script" uid="uid://bwa3sr7ybr7qh" path="res://scripts/path_spawner.gd" id="6_1urxi"]
-[ext_resource type="PackedScene" uid="uid://h4emlatau6ty" path="res://scenes/tower_1.tscn" id="7_dthvl"]
-[ext_resource type="PackedScene" uid="uid://ciaqvi1jah6ke" path="res://scenes/tower_2.tscn" id="8_r01d7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1urxi"]
 texture = ExtResource("4_dv2sx")
@@ -16817,14 +16815,5 @@ wait_time = 2.0
 autostart = true
 
 [node name="Towers" type="Node2D" parent="."]
-
-[node name="Tower1" parent="Towers" instance=ExtResource("7_dthvl")]
-position = Vector2(254, 327)
-
-[node name="Tower2" parent="Towers" instance=ExtResource("7_dthvl")]
-position = Vector2(629, 543)
-
-[node name="tower_2" parent="Towers" instance=ExtResource("8_r01d7")]
-position = Vector2(588, 315)
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
