@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var speed = 400.0
-var damage = 10
+var speed = 200.0
+var damage = 30
 
 func _physics_process(delta: float) -> void:
 	position += (Vector2.RIGHT*speed).rotated(rotation) * delta

@@ -1,19 +1,18 @@
 extends StaticBody2D
 
-var bullet = preload("res://scenes/projectile_1.tscn")
-var bulletDamage = 10
+var bullet = preload("res://scenes/projectile_2.tscn")
+var bulletDamage = 30
 var pathName
 var targets = []
 var currTarget
 
-@onready var turret = $Turret
-@onready var marker = $Turret/Marker2D
 var shooting = false
 
+@onready var turret = $Turret
+@onready var marker = $Turret/Marker2D
 var rotation_speed: float = 30
 
-@export var tower_cost: int = 50
-#@export var tower_range: float = 150.0
+@export var tower_cost: int = 100
 
 func _physics_process(delta: float) -> void:
 	if targets.size() != 0:
@@ -36,7 +35,7 @@ func select_enemy():
 	var enemy_index = enemy_progress_array.find(max_progress)
 	
 	currTarget = targets[enemy_index]
-	
+
 func fire():
 	shooting = true
 	var fired_bullet = bullet.instantiate()
@@ -49,19 +48,23 @@ func fire():
 	
 	#currTarget.take_damage(bulletDamage)
 	
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(3).timeout
 	shooting = false
+	
+
+func get_tower_cost() -> int:
+	return tower_cost
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		targets.append(body)
 
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		targets.erase(body)
 
-func get_tower_cost() -> int:
-	return tower_cost
 
 func get_tile_position() -> Vector2i:
 	var tilemap = get_node("../../TileMap2")
