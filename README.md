@@ -1,288 +1,105 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/CiJSeuZz)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=19752518)
-# Proj: 2D Tower Defense Game
+# 2D Tower Defense Game
+
+A strategic tower defense game built in Godot 4, where players must defend their castle from waves of enemies using strategically placed towers.
+
+## Gameplay Instructions
+
+### Objective
+Defend your castle from incoming enemy waves by strategically placing towers along their path. The game ends when your castle's health reaches zero.
+
+### How to Play
+
+#### **Tower Placement**
+1. **Select Tower Type**: Click on the Green Tank ($50) or Red Tank ($100) buttons in the bottom-left inventory panel
+2. **Drag & Drop**: Click and drag the selected tower to your desired location
+3. **Valid Placement**: Towers can only be placed in open areas (not on enemy paths or blocked zones)
+4. **Cost Management**: Ensure you have enough gold before purchasing towers
+
+#### **Resource Management**
+- **Starting Gold**: 100 coins
+- **Earn Gold**: Destroy enemies to gain additional funds
+
+#### **Defense Strategy**
+- **Green Tanks**: Cheaper, good for early waves and chokepoints
+- **Red Tanks**: More expensive, slow projectile but higher damage
+- **Path Blocking**: Use terrain and tower placement to maximize enemy exposure
+- **Castle Protection**: Monitor your castle health in the top HUD
+
+#### **Wave System**
+- Enemies spawn in waves
+- Each wave contains multiple enemies following the 2D path
+- Prepare defenses between waves
+
+### **Win/Lose Conditions**
+- **Victory**: Survive all enemy waves
+- **Defeat**: Castle health reaches zero
+
+### **Controls**
+- **Mouse**: Click and drag for tower placement
+- **ESC**: Pause game
+- **UI Buttons**: Tower selection and game controls
 
 ---
 
-**Deadline: Thursday 26th June 2025, 11:59 pm**
+## Team Reflections
+
+### Team Member 1: Enemy Functionality and Tower Systems
+
+**Role**: Implemented core gameplay mechanics including enemy AI, pathfinding, and tower combat systems.
+
+#### **Key Contributions:**
+- **Enemy Functionality**: Developed enemy spawning system, AI behavior, and wave management
+- **2D Pathfinding**: Implemented Path2D and PathFollow2D for smooth enemy movement along predetermined routes
+- **Tower Combat System**: Created tower targeting, shooting mechanics, and damage calculations
+- **GameManager Integration**: Built resource management and game state handling
+
+#### **Technical Challenges Overcome:**
+1. **Pathfinding Optimization**: Initially faced performance issues with multiple enemies pathfinding simultaneously. Solved by implementing efficient Path2D following with optimized update cycles.
+
+2. **Tower Targeting Logic**: Creating smart tower AI that prioritizes targets effectively. Implemented range detection, closest-enemy targeting, and smooth rotation mechanics.
+
+3. **Wave Spawning Balance**: Balancing enemy spawn rates and difficulty progression required extensive playtesting and parameter tweaking.
+
+#### **Learning Outcomes:**
+- Mastered Godot's Path2D system for smooth enemy movement
+- Gained experience in game balance and difficulty curve design
+- Improved understanding of performance optimization in real-time games
+- Learned to implement complex AI behaviors using state machines
+
+#### **Code Architecture Insights:**
+The enemy system uses a modular approach where each enemy type inherits from a base Enemy class, making it easy to add new enemy variants. The tower system employs a similar pattern, allowing for diverse tower behaviors while maintaining clean, reusable code.
 
 ---
 
-## Game Overview
-**Title:** "Crystal Defenders"  
-**Genre:** 2D Tower Defense _([Example1](https://user-images.githubusercontent.com/31965265/36637838-df9d2a84-19b2-11e8-8f89-a70b3493e933.PNG), [Example2](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/989650/ss_3917b5708f685f9339488936f422c37006eba383.1920x1080.jpg))_
-**Platform:** PC (Godot Engine)  
-**Team Size:** 3 Students Max 
-**Development Time:** About 2 weeks
+### Team Member 2: UI & Game Management, and Inventory
 
-### Core Concept
-A simple tower defense game where players place towers to defend against waves of enemies. Focus on getting core mechanics working well with polished presentation.
+**Role**: Designed and implemented all user interface elements, game state management, and user experience systems.
 
----
+#### **Key Contributions:**
+- **Tower Inventory System**: Created intuitive drag-and-drop tower placement interface
+- **HUD Design**: Developed comprehensive heads-up display showing gold, lives, and wave information
+- **Menu Systems**: Built main menu, pause menu, and game over screens
+- **Game Management**: Implemented core game state management including pause system, scene transitions, and game flow control
+- **Visual Polish**: Applied consistent styling and visual feedback throughout the game
 
-## Core Features (must implement)
+#### **Technical Challenges Overcome:**
+1. **Drag-and-Drop Implementation**: Creating smooth, responsive drag-and-drop mechanics that work seamlessly with the game world coordinate system.
 
-### Screens Required
-1. **Main Menu** - Start, Quit, Credits
-2. **Game Scene** - The actual tower defense gameplay
-3. **Game Over Screen** - Victory/Defeat with stats
+2. **Game State Management**: Implementing a robust GameManager that handles all game states, resource management, and scene transitions. Created a centralized system for pause functionality, scene switching, and persistent game data.
 
-### Maps
-- **1 single well-designed map**
-- Clear enemy path from spawn point to goal
-- Designated tower spots (atleast 10-15 potential spots)
+3. **UI Layering**: Ensuring UI elements render in correct order while maintaining proper input priority. Implemented using multiple CanvasLayers with appropriate z-indexing.
 
-### Towers (2 Types Only)
-1. **Arrow Tower** - Single target, medium range, medium damage
-2. **Cannon Tower** - Area damage, short range, slow fire rate
+4. **Collision Detection for Placement**: Integrating UI placement system with game world collision detection to prevent tower placement in invalid areas. Achieved through physics queries and collision mask filtering.
 
-### Enemies (3 Types Only)
-1. **Basic Enemy** - Standard stats
-2. **Fast Enemy** - Low health, high speed  
-3. **Tank Enemy** - High health, slow speed
+5. **Cross-Scene Communication**: Establishing reliable communication between different game scenes through the GameManager, ensuring smooth transitions and state persistence across menu, gameplay, and game over screens.
 
-### Game Systems
-- **10 waves** total (increasing difficulty)
-- **Simple currency** (gold from kills)
-- **Lives system** (10 lives)
-- **No upgrades** - towers work at single level
-
----
-
-## Individual Responsibilities
-
-### Student A: Tower System
-| Task | Description | Deliverables |
-|------|-------------|--------------|
-| Tower Placement | Click-to-place with validation | `TowerPlacement.gd` |
-| Arrow Tower | Single target, medium range | `ArrowTower.gd` |
-| Cannon Tower | AOE damage, short range | `CannonTower.gd` |
-| Projectiles | Movement, collision, effects | `ProjectileManager.gd` |
-| Visual Polish | Range indicators, particles | Tower effects |
-| Tower Selling | 50% gold refund | Sell functionality |
-
-**Branch:** `feature/tower-system`  
-**Minimum Commits:** 10 commits
-
-### Student B: Enemy System
-| Task | Description | Deliverables |
-|------|-------------|--------------|
-| Path Movement | Enemies follow predetermined path | `PathFollower.gd` |
-| Enemy Types | Basic, Fast, Tank variants | `BasicEnemy.gd`, etc. |
-| Wave Manager | Spawn timing and quantities | `WaveManager.gd` |
-| Health System | Health bars above enemies | Health display |
-| Death Effects | Particles, gold reward | `EnemyDeath.gd` |
-| Visual Polish | Hit effects, spawn particles | Enemy animations |
-
-**Branch:** `feature/enemy-system`  
-**Minimum Commits:** 10 commits
-
-### Student C: UI & Game Management
-| Task | Description | Deliverables |
-|------|-------------|--------------|
-| Main Menu | Start screen with options | `MainMenu.tscn/.gd` |
-| Game Core | State management, pause | `GameManager.gd` |
-| HUD | Gold, lives, wave display | `HUD.tscn/.gd` |
-| Economy | Gold tracking and spending | `ResourceManager.gd` |
-| Game Over | Victory/defeat with stats | `GameOver.tscn/.gd` |
-| Audio | Background music, SFX | `AudioManager.gd` |
-
-**Branch:** `feature/game-ui`  
-**Minimum Commits:** 10 commits
-
----
-
-## Shared Responsibilities
-- **Map Design & Visuals** - Design together, make it look good (3 hours)
-- **Color Palette** - Agree on consistent colors (30 min)
-- **Game Feel** - Particle effects, screen shake, eye candy (2 hours)
-- **Testing & Balancing** - Everyone tests everything (2 hours)
-
----
-
-## Visual Polish Guidelines
-
-### Consistent Art Style
-- Choose either pixel art OR vector style (not both)
-- Use consistent color palette (5-6 colors max)
-- Enemy and tower sizes should feel right
-
-### Recommended Polish Elements
-1. **Particles** - Enemy death, tower shooting
-2. **UI Feedback** - Button hovers, gold pickup animation
-3. **Health Bars** - Clean, readable, consistent size
-4. **Path Visualization** - Clear but not intrusive
-5. **Background** - Simple but not empty
-
-### Recommended Free Assets
-- **Art**: Kenney.nl (consistent style)
-- **Fonts**: Google Fonts (pick 1 for headers, 1 for body)
-- **Sound**: Freesound.org, Zapsplat
-- **Music**: OpenGameArt.org
-
----
-
-## UI/UX Flow
-
-```
-Main Menu
-    ├── Start → Game Screen
-    ├── Credits → Credits Popup → Back
-    └── Quit → Exit Game
-
-Game Screen
-    ├── Pause → Pause Menu
-    │           ├── Resume
-    │           └── Main Menu
-    └── Game End → Game Over Screen
-                    ├── Main Menu
-                    └── Quit
-```
----
-
-## Minimum Polish Requirements
-
-### Main Menu
-- [ ] Background image/pattern
-- [ ] Title with nice font
-- [ ] Buttons with hover states
-- [ ] Simple fade transition to game
-
-### Game Screen  
-- [ ] Clean, readable HUD
-- [ ] Visual feedback for actions (place tower, kill enemy)
-- [ ] At least 3 sound effects (place, shoot, enemy death)
-- [ ] Background music (can loop)
-
-### Game Over Screen
-- [ ] Clear victory/defeat message
-- [ ] Show statistics (waves survived, enemies killed)
-- [ ] Smooth transition from gameplay
-- [ ] Options to replay or return to menu
-
----
-
-## Common Polish Pitfalls to Avoid
-- ❌ Inconsistent art (mixing pixel art with vectors)
-- ❌ No visual feedback for interactions
-- ❌ Jarring scene transitions
-- ❌ Unreadable UI (bad contrast, tiny text)
-- ❌ Forgetting sound completely
-- ❌ Placeholder graphics in final build
-
----
-
-## Quick Polish Wins
-- ✅ Use tweens for smooth movement
-- ✅ Add simple particles (Godot's CPUParticles2D)
-- ✅ Screen shake on enemy death (subtle!)
-- ✅ Consistent button style across all screens
-- ✅ Use AnimationPlayer for UI animations
-- ✅ Simple color variations for enemy types
-
----
-
-## Example Code Structure
-
-### Scene Hierarchy
-
-Following is a suggested scene hierarchy for the game. You are free to modify it as needed, but this should give you a good starting point:
-
-```
-Main
-├── MainMenu
-├── GameScene
-│   ├── GameManager
-│   ├── UILayer
-│   │   ├── HUD
-│   │   └── PauseMenu
-│   ├── GameWorld
-│   │   ├── Map
-│   │   ├── TowerContainer
-│   │   └── EnemyContainer
-│   └── AudioManager
-└── GameOverScreen
-```
-
-### Signal Flow for Polish
-
-The following code snippets illustrate how to implement some of the polish features mentioned in the project requirements:
-
-```gdscript
-# Enemy killed - trigger multiple effects
-signal enemy_killed(position, gold_value)
-
-# Connect in GameManager
-func _on_enemy_killed(pos, gold):
-    spawn_death_particles(pos)
-    spawn_gold_popup(pos, gold)
-    play_death_sound()
-    add_gold(gold)
-    camera_shake(0.1)
-```
-
----
-
-With these additions, the game should feel complete and polished despite the short timeline. Remember: **simple but polished > complex but rough!**
-
----
-
-## Game Balance Reference
-
-### Towers
-| Type | Cost | Damage | Range | Fire Rate |
-|------|------|--------|-------|-----------|
-| Arrow | 50g | 10 | 150 | 1.0/sec |
-| Cannon | 100g | 30 | 100 | 0.5/sec |
-
-### Enemies
-| Type | Health | Speed | Gold Reward |
-|------|--------|-------|-------------|
-| Basic | 50 | 50 | 10g |
-| Fast | 30 | 100 | 15g |
-| Tank | 200 | 25 | 30g |
-
-**Starting Resources:** 200 gold, 10 lives
-
----
-
-## Git Requirements
-
-### Commit Guidelines
-- **Minimum:** 10 commits per student
-- **Distribution:** Spread across at least 7 days **(SUPER important!)**
-- **Size:** 50-300 lines per commit (avoid huge commits)
-- **Messages:** Clear and descriptive
-
----
-
-## Marking Scheme (100%)
-
-| Component | Weight | Criteria |
-|-----------|--------|----------|
-| **Individual Work** | **60%** | |
-| Core Functionality | 20% | Features work as specified, bug-free |
-| Git Commits | 20% | Min 10 commits, spread over at least 7 days, meaningful messages |
-| Code Quality | 10% | Clean, commented, organized code |
-| Individual Polish | 10% | Visual effects, optimization in assigned area |
-| **Team Work** | **40%** | |
-| Integration | 10% | Systems work together smoothly |
-| Visual Polish | 10% | Consistent art, particles, game feel |
-| Game Balance | 10% | Fun, appropriate difficulty |
-| Completeness | 10% | All screens work, no placeholders |
-
-
----
-
-## Submission Requirements
-1. Git repository with full history
-2. README with game play instructions _(if different from default)_
-3. Individual reflection _(each student, 1 paragraph each)_
-
----
-
-## Important Notes
-- **Quality > Quantity:** Polish 2 towers rather than rushing 4
-- **Test Early:** Don't wait until day 7 to integrate
-- **Commit Often:** Show your work progress
-- **Communicate:** Ask for help when stuck
+#### **Learning Outcomes:**
+- Mastered Godot's UI system including Control nodes, CanvasLayers, and anchoring
+- Learned Drag & Drop feature that was used in tower inventory
+- Gained expertise in singleton pattern implementation for global game state management
+- Learned advanced scene management and transition techniques
+- Developed skills in signal-based architecture for loose coupling between systems
+- Gained expertise in user experience design for real-time strategy games
+- Learned advanced styling techniques using StyleBoxFlat and theme overrides
+- Developed skills in visual feedback and animation for enhanced user interaction
+- Mastered pause system implementation with proper process mode handling
