@@ -65,3 +65,8 @@ func get_tower_cost() -> int:
 
 #func get_bullet_damage() -> int:
 	#return bulletDamage
+	
+func get_tile_position() -> Vector2i:
+	var tilemap = get_node("../../TileMap2")
+	var local_pos = tilemap.to_local(global_position)
+	return tilemap.local_to_map(local_pos)
