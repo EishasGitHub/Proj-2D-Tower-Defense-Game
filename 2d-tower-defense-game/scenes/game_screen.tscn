@@ -16786,6 +16786,29 @@ layer_4/tile_data = PackedInt32Array(2228233, 327680, 37, 2293769, 327680, 38, 2
 [node name="Castle" parent="GameWorld/Map" instance=ExtResource("5_rxmqw")]
 position = Vector2(1055, 69)
 
+[node name="BlockedArea" type="Area2D" parent="GameWorld/Map"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameWorld/Map/BlockedArea"]
+polygon = PackedVector2Array(149, 50, 201, 23, 233, 60, 204, 106, 153, 91)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="GameWorld/Map/BlockedArea"]
+polygon = PackedVector2Array(328, 23, 283, 36, 288, 223, 423, 225, 425, 35)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="GameWorld/Map/BlockedArea"]
+polygon = PackedVector2Array(155, 488, 351, 489, 359, 621, 312, 638, 198, 639, 154, 628)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="GameWorld/Map/BlockedArea"]
+polygon = PackedVector2Array(392, 550, 411, 572, 402, 600, 470, 622, 500, 599, 503, 569, 483, 544, 460, 547, 432, 529)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="GameWorld/Map/BlockedArea"]
+polygon = PackedVector2Array(998, 416, 1052, 416, 1052, 484, 995, 483)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="GameWorld/Map/BlockedArea"]
+polygon = PackedVector2Array(33, 293, 91, 291, 92, 348, 35, 348)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="GameWorld/Map/BlockedArea"]
+polygon = PackedVector2Array(1, 65, 65, 65, 65, 255, 130, 256, 128, 448, 387, 449, 387, 320, 511, 318, 512, 193, 636, 192, 636, 443, 511, 448, 511, 637, 958, 639, 960, 386, 1092, 383, 1092, 129, 1132, 128, 1132, 7, 950, 7, 952, 132, 1023, 134, 1018, 316, 895, 320, 896, 576, 577, 574, 578, 512, 705, 512, 705, 126, 448, 126, 447, 256, 318, 252, 316, 384, 191, 384, 193, 189, 126, 189, 126, 1, 0, 1)
+
 [node name="PathSpawner" type="Node2D" parent="."]
 script = ExtResource("6_1urxi")
 

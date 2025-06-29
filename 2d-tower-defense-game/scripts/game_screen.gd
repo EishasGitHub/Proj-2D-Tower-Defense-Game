@@ -77,6 +77,10 @@ func _on_pause_toggled(is_paused: bool):
 	#     enemy_spawner.resume_spawning()
 	#     tower_manager.resume_towers()
 
+func _on_tower_placed(tower_type: String, position: Vector2):
+	"""Handle tower placement from inventory"""
+	print("Tower placed: ", tower_type, " at position: ", position)
+
 # === UTILITY FUNCTIONS ===
 
 func get_current_game_state() -> Dictionary:

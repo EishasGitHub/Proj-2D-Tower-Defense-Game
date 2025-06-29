@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv6ehwu4veiij"]
+
+[ext_resource type="Script" uid="uid://c0tluwgj3ufr4" path="res://scripts/castle_health_bar.gd" id="1_itpo1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjne8"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldxq8"]
+bg_color = Color(0, 0.5, 1, 1)
+
+[node name="CastleHealthBar" type="CanvasLayer"]
+script = ExtResource("1_itpo1")
+
+[node name="HealthContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -205.0
+offset_top = 135.0
+offset_right = 35.0
+offset_bottom = 222.0
+grow_horizontal = 0
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HealthDisplay" type="VBoxContainer" parent="HealthContainer"]
+layout_mode = 2
+
+[node name="CastleLabel" type="Label" parent="HealthContainer/HealthDisplay"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Castle Health"
+horizontal_alignment = 1
+
+[node name="CastleHealthProgress" type="ProgressBar" parent="HealthContainer/HealthDisplay"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_mjne8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ldxq8")
+value = 100.0

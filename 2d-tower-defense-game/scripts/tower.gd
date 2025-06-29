@@ -12,6 +12,9 @@ var shooting = false
 
 var rotation_speed: float = 30
 
+@export var tower_cost: int = 50
+#@export var tower_range: float = 150.0
+
 func _physics_process(delta: float) -> void:
 	if targets.size() != 0:
 		select_enemy()
@@ -56,3 +59,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		targets.erase(body)
+
+func get_tower_cost() -> int:
+	return tower_cost
+
+#func get_bullet_damage() -> int:
+	#return bulletDamage
