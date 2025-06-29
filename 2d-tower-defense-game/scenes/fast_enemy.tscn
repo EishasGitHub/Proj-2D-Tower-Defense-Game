@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgckx0cmwtmra"]
+
+[ext_resource type="Script" uid="uid://dsws7ujx35lmn" path="res://scripts/FastEnemy.gd" id="1_hu2wp"]
+[ext_resource type="Texture2D" uid="uid://cpt7sdcqi18cn" path="res://art/PNG/Default size/towerDefense_tile246.png" id="2_7dcje"]
+[ext_resource type="PackedScene" uid="uid://bldmxtt7gdj0l" path="res://scenes/enemy_health_bar.tscn" id="3_lpnxe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dcje"]
+radius = 17.8885
+
+[node name="FastEnemy" type="CharacterBody2D"]
+script = ExtResource("1_hu2wp")
+
+[node name="TowerDefenseTile246" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_7dcje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7dcje")
+
+[node name="EnemyHealthBar" parent="." instance=ExtResource("3_lpnxe")]
+offset_left = -24.0
+offset_top = -32.0
+offset_right = 26.0
+offset_bottom = -24.0
